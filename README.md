@@ -20,7 +20,7 @@ Pdf to txt converter πρόγραμμα που δημιούργησα ως μι�
 Μπορούμε να δώσουμε και wildcards, αν θέλουμε.\
 Το wildcard το δίνουμε σαν 1η παράμετρο του path.\
 To wildcard για το αστεράκι είναι το (.*)\
-Πχ: myFolder/myOtherFolder\wild(.*)\
+Πχ: myFolder/myOtherFolder\wild(./*)\
 Η 3η παράμετρος είναι προαιρετική.\
 Αν την παραλείψουμε θα ισούται με 1-1-1900 για να είμαστε σίγουροι ότι θα βρούμε αρχεία με μεγαλύτερη ημερομηνία τροποποίησης από αυτή.\
 Η 4η παράμετρος είναι επίσης προαιρετική, αλλά δεν μπορεί να υπάρξει αν δεν έχουμε δώσει ημερομηνία για την 3η παράμετρο.\
@@ -29,9 +29,9 @@ To wildcard για το αστεράκι είναι το (.*)\
 
 Παραδείγματα\
 =========================================================================\
-java PDFToTextConverter folder1 folder2
-java PDFToTextConverter folder1/subfolder folder2
-java PDFToTextConverter folder1/wild(.\*) folder2 
-java PDFToTextConverter folder1 folder/subfolder2 1-1-2019
-java PDFToTextConverter folder1/subfolder folder2 3-4-2018 3-4-2018
+java PDFToTextConverter folder1 folder2\
+java PDFToTextConverter folder1/subfolder folder2\
+java PDFToTextConverter folder1/wild(.\*) folder2\
+java PDFToTextConverter folder1 folder/subfolder2 1-1-2019\
+java PDFToTextConverter folder1/subfolder folder2 3-4-2018 3-4-2018\
 java PDFToTextConverter folder1/subfolder/wi(.*) folder2/sub1/sub2 4-5-2018 5-10-2019
