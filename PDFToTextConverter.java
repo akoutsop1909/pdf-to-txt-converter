@@ -21,7 +21,7 @@ public class PDFToTextConverter {
         if(args.length == 1) source_path = args[0];
         
         
-        //an uparxei kai 2i parametros tote to source path pairnei tin timi tou
+        //an uparxei kai 2i parametros tote to dest path pairnei tin timi tou
         if (args.length == 2) {
             source_path = args[0];
             dest_path = args[1];
