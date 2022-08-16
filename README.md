@@ -1,4 +1,4 @@
-# CMD_PdfToTxtConverter
+# PdfToTxtConverter
 Pdf to txt converter πρόγραμμα που δημιούργησα ως μικρό project κατά τη διάρκεια της πρακτικής μου.\
 Συμπεριλαμβάνεται το αρχείο java που περιέχει τον κώδικα.\
 Το πρόγραμμα μετρατρέπει μαζικά αρχεία pdf σε txt.\
@@ -8,15 +8,13 @@ Pdf to txt converter πρόγραμμα που δημιούργησα ως μι�
 Το ανοίγουμε με κάποιον editor και βάζουμε τις παραμέτρους στην 2η γραμμή, δίπλα από το "PDFToTextConverter.jar".\
 Διπλό κλικ στο αρχείο bat για να τρέξει το πρόγραμμα.
 
-ΠΑΡΑΜΕΤΡΟΙ COMMAND LINE ARGUMENTS (ARGS)\
-========================================================================\
+## Παράμετροι command line arguments (args)
 1η παράμετρος: φάκελος πηγή (source folder).\
 2η παράμετρος: φάκελος προορισμού (destination folder).\
 3η παράμετρος: μικρότερη ημερομηνία τελευταίας τροποποήσης των αρχείων.\
 4η παράμετρος: μεγαλύτερη ημερομηνία τελευταίας τροποποίησης των αρχείων.
 
-ΟΔΗΓΙΕΣ\
-=========================================================================\
+## Οδηγίες
 Τον φάκελο πηγή και τον φάκελο προορισμού τα δίνουμε είτε με absolute path είτε με relative path (σε σχέση με την τοποθεσία του αρχείου jar).\
 Αν δεν υπάρχει ο φάκελος προορισμού, δημιουργείται αυτόματα.\
 Το πρόγραμμα μπορεί να τρέξει και χωρίς παραμέτρους. Στην περίπτωση αυτή, ο φάκελος πηγή και ο φάκελος προορισμού παίρνουν την τιμή του current working directory.\
@@ -32,14 +30,15 @@ To wildcard για το αστεράκι είναι το (.\*)\
 Η ημερομηνία που θα βάλουμε πρέπει να είναι της μορφής dd-MM-yyyy\
 Πχ: 14-11-2019
 
-ΠΑΡΑΔΕΙΓΜΑΤΑ\
-=========================================================================\
-java -jar "PDFToTextConverter.jar"\
-java -jar "PDFToTextConverter.jar" wi(.\*)\
-java -jar "PDFToTextConverter.jar" wi(.\*) new\
-java -jar "PDFToTextConverter.jar" folder1 folder2\
-java -jar "PDFToTextConverter.jar" folder1/subfolder folder2\
-java -jar "PDFToTextConverter.jar" folder1/wild(.\*) folder2\
-java -jar "PDFToTextConverter.jar" folder1 folder/subfolder2 1-1-2019\
-java -jar "PDFToTextConverter.jar" folder1/subfolder folder2 3-4-2018 3-4-2018\
+## Παραδείγματα
+```
+java -jar "PDFToTextConverter.jar"
+java -jar "PDFToTextConverter.jar" wi(.\*)
+java -jar "PDFToTextConverter.jar" wi(.\*) new
+java -jar "PDFToTextConverter.jar" folder1 folder2
+java -jar "PDFToTextConverter.jar" folder1/subfolder folder2
+java -jar "PDFToTextConverter.jar" folder1/wild(.\*) folder2
+java -jar "PDFToTextConverter.jar" folder1 folder/subfolder2 1-1-2019
+java -jar "PDFToTextConverter.jar" folder1/subfolder folder2 3-4-2018 3-4-2018
 java -jar "PDFToTextConverter.jar" folder1/subfolder/wi(.\*) folder2/sub1/sub2 4-5-2018 5-10-2019
+```
