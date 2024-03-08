@@ -1,23 +1,23 @@
 # PdfToTxtConverter
-Πρόγραμμα μαζικής μετατροπής αρχείων pdf σε txt που δημιούργησα κατά τη διάρκεια της πρακτικής μου.\
-Τρέχει μέσω της γραμμής εντολών, πληκτρολογώντας ```java -jar "PDFToTextConverter.jar"``` με (ή χωρίς) παραμέτρους. Προς ευκολία χρήσης, τροποποιούμε και εκτελούμε το αρχείο ```conv.bat```.\
-Το πιο απλό παράδειγμα είναι να τοποθετίσουμε τα αρχεία pdf στον ίδιο φάκελο με το jar και να τρέξουμε το bat.\
-Συμπεριλαμβάνεται ο κώδικας java (αρχείο PDFToTextConverter.java).
+A bulk PDF to TXT converter that I developed during my internship.\
+It is executed through the command line by typing ```java -jar "PDFToTextConverter.jar"``` with (or without) arguments. For ease of use, the ```conv.bat``` file can be modified and executed instead.\
+The simplest example is to place the PDF files in the same folder as the JAR file and execute the BAT file.\
+The java code is included in the ```PDFToTextConverter.java``` file.
 
-## Παράμετροι command line arguments (args)
-* 1η παράμετρος: φάκελος πηγή (source folder).
-* 2η παράμετρος: φάκελος προορισμού (destination folder).
-* 3η παράμετρος: μικρότερη ημερομηνία τελευταίας τροποποήσης των αρχείων.
-* 4η παράμετρος: μεγαλύτερη ημερομηνία τελευταίας τροποποίησης των αρχείων.
+## Command line arguments (args)
+* 1st argument: source folder (absolute or relative path).
+* 2nd argument: destination folder (absolute or relative path).
+* 3rd arguments: last modified date (greater than set value).
+* 4η παράμετρος: last modified date (less than set value).
 
-## Οδηγίες εκτέλεσης με παραμέτρους
-Δίνουμε absolute ή relative path για τον φάκελο πηγής και προορισμού. Αν δεν υπάρχει ο φάκελος προορισμού που δώσαμε, δημιουργείται αυτόματα. Σε περίπτωση που δεν δώσουμε ούτε πηγή ούτε προορισμό, ορίζονται αυτόματα ως το current working directory.\
-Το πρόγραμμα υποστηρίζει και wildcards στην πρώτη παράμετρο, ώστε να επιλέξουμε συγκεκριμένα pdf προς μετατροπή. Το wildcard για το αστεράκι είναι το ```(.\*)```, πχ. ```myFolder/myOtherFolder/wild(.\*)```. Αν τα αρχεία προς μετατροπή βρίσκονται στο current working directory, τότε δίνουμε απλώς το wildcard χωρίς path.\
-Η τρίτη παράμετρος είναι επίσης προαιρετική. Αν δεν οριστεί, ισούται με 1-1-1900 προς σιγουριά εύρεσης αρχείων με μεγαλύτερη τιμή ημερομηνίας τροποποίησης.\
-Η τέταρτη παράμετρος, επίσης προαιρετική, αν δεν οριστεί, ισούται με την τρέχουσα ημερομηνία προς σιγουριά εύρεσης αρχείων με μικρότερη τιμή ημερομηνίας τροποποίησης.\
-Σημειώνεται ότι δέχεται ημερομηνίες της μορφής dd-MM-yyyy, πχ. 14-11-2019.
+## Execution with hyperparameters
+If the destination folder does not exist, it is created automatically. In case both the source and destination folders are not provided, they are set to the current working directory.\
+The first hyperparameter supports wildcards to select specific PDF files for conversion. The wildcard for the asterisk is ```(.\*)```, for example ```myFolder/myOtherFolder/wild(.\*)```. If the files to convert are in the current working directory, we can type the wildcard without the path.\
+The third hyperparameter is also optional. If not set, it equals to 1-1-1900 to ensure searching for files with a higher last modified date.\
+The fourth hyperparameter is also optional. If not set, it equals to the current date to ensure searching for files with a lower last modified date.\
+Dates must be in dd-MM-yyyy format, for example 14-11-2019.
 
-## Παραδείγματα
+## Examples
 ```
 java -jar "PDFToTextConverter.jar"
 java -jar "PDFToTextConverter.jar" wi(.\*)
