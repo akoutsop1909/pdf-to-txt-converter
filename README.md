@@ -1,7 +1,7 @@
 # PdfToTxtConverter
 A bulk PDF to TXT converter that I developed during my internship.\
 It is executed through the command line by typing ```java -jar "PDFToTextConverter.jar"``` with (or without) arguments. For ease of use, the ```conv.bat``` file can be modified and executed instead.\
-The simplest example is to place the PDF files in the same folder as the JAR file and execute the BAT file.\
+The simplest conversion involves placing the PDF files in the same folder as the JAR file and execute the BAT file.\
 The java code is included in the ```PDFToTextConverter.java``` file.
 
 ## Command line arguments (args)
