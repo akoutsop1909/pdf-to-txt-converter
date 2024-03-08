@@ -7,8 +7,8 @@ The java code is included in the ```PDFToTextConverter.java``` file.
 ## Command line arguments (args)
 * 1st argument: source folder (absolute or relative path).
 * 2nd argument: destination folder (absolute or relative path).
-* 3rd arguments: last modified date (greater than set value).
-* 4η παράμετρος: last modified date (less than set value).
+* 3rd argument: last modified date (greater than set value).
+* 4th argument: last modified date (less than set value).
 
 ## Execution with hyperparameters
 If the destination folder does not exist, it is created automatically. In case both the source and destination folders are not provided, they are set to the current working directory.\
