@@ -1,4 +1,4 @@
-# PdfToTxtConverter
+# PDF-To-TXT-Converter
 Under construction
 <!---
 A bulk PDF to TXT converter that I developed during my internship.\
