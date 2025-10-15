@@ -284,7 +284,7 @@ public class Pdf2Txt {
                             "Supports:\n" +
                             "  - Batch conversion of multiple PDF files.\n" +
                             "  - Wildcard-based filtering for filenames (using * and ?).\n" +
-                            "  - Modified date filtering (min and max).\n" +
+                            "  - Last modified date filtering (min and max).\n" +
                             "\n" +
                             "Limitations:\n" +
                             "  - Arguments must be provided in order (source, dest, minDate, maxDate).\n" +
