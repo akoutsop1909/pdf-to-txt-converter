@@ -1,5 +1,9 @@
 # PDF-To-TXT Converter
 Under construction
+
+## Demo Run
+![pdf2txt demo](https://github.com/user-attachments/assets/ac940b3c-d88b-4312-836a-b9d1a46d8df8)
+
 <!---
 A bulk PDF to TXT converter that I developed during my internship.\
 It is executed through the command line by typing ```java -jar "PDFToTextConverter.jar"``` with or without arguments. For ease of use, the ```conv.bat``` file can be modified and executed instead.\
