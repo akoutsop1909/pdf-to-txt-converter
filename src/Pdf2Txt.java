@@ -26,25 +26,21 @@ public class Pdf2Txt {
             System.exit(1);
         }
 
-        // Set default source and destination paths to the current working directory
-        File source = new File(System.getProperty("user.dir"));
-        File dest = new File(System.getProperty("user.dir"));
-
-        // Set default wildcard to accept all PDF files
-        String wildcard = "^.*\\.pdf$";
-
-        // Set default min and max modified date
+        // Set default values
+        File source = new File(System.getProperty("user.dir")); // current directory
+        File dest = new File(System.getProperty("user.dir")); // current directory
+        String wildcard = "^.*\\.pdf$"; // accepts all PDF files
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        dateFormat.setLenient(false);
-        Date minDate = new Date(0);  // 1970
-        Date maxDate = new Date();   // now
+        dateFormat.setLenient(false); // only accepts dd-MM-yyyy format
+        Date minDate = new Date(0);  // 01-01-1970
+        Date maxDate = new Date();   // current date
 
         // If args[0] is provided, separate wildcard from source path
         if (args.length >= 1) {
             // First, check if user has called for help
             switch (args[0]) {
-                case "--help": callHelp("--help"); break;
-                case "--about": callHelp("--about"); break;
+                case "--help": callHelp("--help"); System.exit(0); break;
+                case "--about": callHelp("--about"); System.exit(0); break;
             }
 
             File inputPath = new File(args[0]);
@@ -57,9 +53,8 @@ public class Pdf2Txt {
                 // Separate filename or wildcard from source path
                 source = new File(inputPath.getParent());
                 if (!source.exists() || !source.isDirectory()) {
-                    System.err.println("Error: the parent directory of source path '" + inputPath.getAbsolutePath() + "' does not exist or is not a valid directory.\n" +
-                            "Please ensure the directory exists and is accessible.\nExiting program.");
-                    System.exit(1);
+                    throw new IllegalArgumentException("\nThe parent directory of source path '" + inputPath.getAbsolutePath() + "' does not exist or is not a valid directory.\n" +
+                            "Please ensure the directory exists and is accessible.");
                 }
                 // Convert wildcard to regex
                 wildcard = convertWildcardToRegex(inputPath.getName());
@@ -79,7 +74,7 @@ public class Pdf2Txt {
         } catch (PatternSyntaxException e) {
             System.err.println("Error: invalid wildcard pattern: '" + wildcard + "'.\n" +
                     "Please ensure the pattern is a valid regular expression.\n" +
-                    "Example: 'test*.pdf' or 'report_?.pdf'.\nExiting program.");;
+                    "Example: 'test*.pdf' or 'report_?.pdf'.");
             System.exit(1);
             return; // added for compiler to ensure the method stops here
         }
@@ -91,18 +86,16 @@ public class Pdf2Txt {
             if (dest.exists()) {
                 // Check if destination path is a file
                 if (!dest.isDirectory()) {
-                    System.err.println("Error: destination path '" + dest.getAbsolutePath() + "' exists, but it is not a directory.\n" +
-                            "Please provide a valid path for the destination directory.\nExiting program.");
-                    System.exit(1);
+                    throw new IllegalArgumentException("\nDestination path '" + dest.getAbsolutePath() + "' exists, but it is not a directory.\n" +
+                            "Please provide a valid path for the destination directory.");
                 }
             } else {
                 // Try to create the directory and its parents
                 if (!dest.mkdirs()) {
-                    System.err.println("Failed to create destination directory: " + dest.getAbsolutePath() + "\n" +
-                            "Please ensure that the path is valid and you have write permissions.\nExiting program.");
-                    System.exit(1);
+                    throw new IllegalArgumentException("\nFailed to create destination directory: " + dest.getAbsolutePath() + "\n" +
+                            "Please ensure that the path is valid and you have write permissions.");
                 }
-                System.out.println("Successfully created destination directory: " + dest.getAbsolutePath() + "\n");
+                System.out.println("Successfully created destination directory: " + dest.getAbsolutePath());
             }
         }
 
@@ -111,9 +104,8 @@ public class Pdf2Txt {
             try {
                 minDate = dateFormat.parse(args[2]);
             } catch (ParseException e) {
-                System.err.println("Error: invalid date format for min modified date: " + args[2] + "\n" +
-                        "Expected format: dd-MM-yyyy (e.g., 01-01-2022)\nExiting program.");
-                System.exit(1);
+                throw new IllegalArgumentException("\nInvalid date format for min modified date: " + args[2] + "\n" +
+                        "Expected format: dd-MM-yyyy (e.g., 01-01-2022)");
             }
         }
 
@@ -122,15 +114,12 @@ public class Pdf2Txt {
             try {
                 maxDate = dateFormat.parse(args[3]);
             } catch (ParseException e) {
-                System.err.println("Error: invalid date format for max modified date: " + args[3] + "\n" +
-                        "Expected format: dd-MM-yyyy (e.g., 01-01-2023)\nExiting program.");
-                System.exit(1);
+                throw new IllegalArgumentException("\nInvalid date format for max modified date: " + args[3] + "\n" +
+                        "Expected format: dd-MM-yyyy (e.g., 01-01-2023)");
             }
 
             if (minDate.after(maxDate)) {
-                System.err.println("Error: max modified date cannot be earlier than min modified date.\n" +
-                                "Exiting program.");
-                System.exit(1);
+                throw new IllegalArgumentException("\nMax modified date cannot be earlier than min modified date.");
             }
         }
         // Run the conversion. If no args are provided, use defaults (current directory, all PDFs, full date range)
@@ -235,8 +224,7 @@ public class Pdf2Txt {
                 System.out.println("TXT file(s) saved to: " + dest.getAbsolutePath());
             }
         } else {
-            System.err.println("Error: unable to read contents of source directory: " + source + "\nExiting program.");
-            System.exit(1);
+            throw new IllegalArgumentException("\nUnable to read contents of source directory: " + source + "\nExiting program.");
         }
     }
 
@@ -260,7 +248,7 @@ public class Pdf2Txt {
                             "                   *  - Matches zero or more characters (e.g., 'test*.pdf' matches 'test1.pdf', 'test_abc.pdf')\n" +
                             "                   ?  - Matches exactly one character(e.g., 'report_?.pdf' matches 'report_1.pdf', 'report_a.pdf')\n" +
                             "\n" +
-                            "  dest         - Directory to save converted TXT files (e.g., ./output/).\n" +
+                            "  dest         - Directory to save converted TXT files (it is created if it does not exist, e.g., ./output/).\n" +
                             "                 Defaults to the current working directory.\n" +
                             "\n" +
                             "  minDate      - Minimum modified date for PDFs (format: dd-MM-yyyy, e.g. 01-01-2022).\n" +
@@ -295,10 +283,9 @@ public class Pdf2Txt {
                             "  - Recursive folder traversal is not supported.\n" +
                             "\n" +
                             "Version: 1.0.0 (Stable)\n" +
-                            "License: MIT (Open source). See the LICENCE file for details\n" +
+                            "License: MIT (Open source). See the LICENCE file for details.\n" +
                             "GitHub: https://github.com/akoutsop1909/pdf-to-txt-converter\n"
             );
         }
-        System.exit(0);
     }
 }
