@@ -1,8 +1,25 @@
 # PDF-To-TXT Converter
 Under construction
 
-## Demo Run
+## ⌨️ Demo Run
 ![pdf2txt demo](https://github.com/user-attachments/assets/ac940b3c-d88b-4312-836a-b9d1a46d8df8)
+
+## 📂 Folder Structure
+```
+pdf-to-txt-converter/
+├── lib/                     # Dependency JARs
+│   └── pdfbox-app-2.0.30.jar
+├── src/                     # Java source code
+│   └── Pdf2Txt.java    
+├── test/                    # JUnit tests
+│   ├── ConversionTest.java
+│   ├── PathParsingTest.java
+│   └── WildcardTest.java
+├── .gitignore               # Files/folders to ignore in Git
+├── LICENSE                  # MIT License for the project
+└── README.md                # This file
+```
+
 
 <!---
 A bulk PDF to TXT converter that I developed during my internship.\
