@@ -22,8 +22,8 @@ java -jar pdf2txt.jar [source] [dest] [minDate] [maxDate]
 ### Arguments
 - `[source]` – Path to the PDF files. Supports wildcards (e.g., ./input/report_?.pdf).
 - `[dest]` – Directory to save converted TXT files. (e.g., ./output/).
-- `[minDate]` – Minimum modified date for PDFs. (format: dd-MM-yyyy, e.g., 01-01-2022).
-- `[maxDate]` – Maximum modified date for PDFs. (format: dd-MM-yyyy, e.g., 01-01-2023).  
+- `[minDate]` – Min modified date for PDFs. (format: dd-MM-yyyy, e.g., 01-01-2022).
+- `[maxDate]` – Max modified date for PDFs. (format: dd-MM-yyyy, e.g., 01-01-2023).  
 
 All arguments are optional, but must be provided in the order listed above. If one or more are omitted at the end, default values will be used for the missing ones:
 - `[source]` → Current directory.
