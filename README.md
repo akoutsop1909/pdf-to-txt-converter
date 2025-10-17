@@ -1,5 +1,15 @@
-# PDF-To-TXT Converter
-Under construction
+# PDF-to-TXT Converter
+A command-line Java tool for batch-converting PDF files to TXT format using [Apache PDFBox](https://pdfbox.apache.org/). It supports filtering input files by filename wildcards (e.g., `*.pdf`, `report_??.pdf`) and last modified date ranges. Output `.txt` files are saved to a specified directory, which is created automatically if it doesn't exist.
+> [!NOTE]
+> I initially built this project during my internship, tailored to the company's internal document needs.  
+> Code shared with permission.
+
+## ⚙️ System Requirements
+- **Java 11 or later** is required. You can download it from the [official Oracle website](https://www.oracle.com/java/technologies/downloads/#java11).
+- Ensure that the `java` command is available in your system's `PATH`.  
+You may also need to set the `JAVA_HOME` environment variable on some systems. Instructions [here](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html).
+
+## How to Use
 
 ## ⌨️ Demo Run
 ![pdf2txt demo](https://github.com/user-attachments/assets/ac940b3c-d88b-4312-836a-b9d1a46d8df8)
@@ -16,7 +26,7 @@ pdf-to-txt-converter/
 │   ├── PathParsingTest.java
 │   └── WildcardTest.java
 ├── .gitignore               # Files/folders to ignore in Git
-├── LICENSE                  # MIT License for the project
+├── LICENSE                  # License file (MIT)
 └── README.md                # This file
 ```
 
