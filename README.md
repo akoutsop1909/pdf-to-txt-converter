@@ -9,8 +9,46 @@ A command-line Java tool for batch-converting PDF files to TXT format using [Apa
 - Ensure that the `java` command is available in your system's `PATH`.  
 You may also need to set the `JAVA_HOME` environment variable on some systems. Instructions [here](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html).
 
-## How to Use
+## 📘 How to Use
+You can download the latest release from the **Releases** section of this repository, which includes the executable `pdf2txt.jar` and a `run_pdf2txt.bat` script for Windows users. This batch script prompts you for input and runs the `pdf2txt.jar` with the parameters you provide. Make sure both files are in the same directory.
 
+Alternatively, you can clone the repository and build the JAR manually using a Java IDE like [IntelliJ IDEA](https://www.jetbrains.com/idea/download/?section=windows), or the `jar` command.
+
+To run the tool directly from the command line, use the following format:
+```
+java -jar pdf2txt.jar [source] [dest] [minDate] [maxDate]
+```
+
+### Arguments
+- **`[source]`** – Path to the PDF files. Supports wildcards (e.g., ./input/report_?.pdf).
+- **`[dest]`** – Directory to save converted TXT files. (e.g., ./output/).
+- **`[minDate]`** – Minimum modified date for PDFs. (format: dd-MM-yyyy, e.g., 01-01-2022).
+- **`[maxDate]`** – Maximum modified date for PDFs. (format: dd-MM-yyyy, e.g., 01-01-2023).  
+
+All arguments are optional, but must be provided in the order listed above. If one or more are omitted at the end, default values will be used for the missing ones:
+- **`[source]`** → Current directory.
+- **`[dest]`** → Current directory.
+- **`[minDate]`** → 01-01-1970.
+- **`[maxDate]`** → Current date.
+
+### Limitations
+- Arguments must be provided in order: `[source]`, `[dest]`, `[minDate]`, `[maxDate]`.
+- Supports only wildcard patterns (`*` and `?`), not full regular expressions.
+- Wildcards apply to filenames only, not to directory names.
+- The `*` wildcard is greedy (matches as many characters as possible).
+- Date filtering is based on the file's last modified timestamp.
+- Recursive folder traversal is not supported.
+
+### Example 
+```
+java -jar pdf2txt.jar ./input/report_?.pdf ./output 01-01-2022 01-01-2023
+```
+
+The above command will convert PDF files in './input' that were modified between Jan 1, 2022 and Jan 1, 2023 into TXT files, saving them in './output'. If no matching files are found, the tool will display an appropriate message.
+
+> [!IMPORTANT]
+> The tool was developed and tested using IntelliJ IDEA. However, when running it directly from the command line (e.g., cmd, PowerShell, bash), the shell may automatically expand wildcard characters before passing them to the tool, leading to unexpected behavior. Quoting the source path may still result in wildcard expansion. Running the tool from a Java IDE, such as IntelliJ IDEA, bypasses shell expansion and ensures the wildcard is passed correctly.
+    
 ## ⌨️ Demo Run
 ![pdf2txt demo](https://github.com/user-attachments/assets/ac940b3c-d88b-4312-836a-b9d1a46d8df8)
 
