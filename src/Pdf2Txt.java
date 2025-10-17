@@ -251,10 +251,10 @@ public class Pdf2Txt {
                             "  dest         - Directory to save converted TXT files (it is created if it does not exist, e.g., ./output/).\n" +
                             "                 Defaults to the current working directory.\n" +
                             "\n" +
-                            "  minDate      - Minimum modified date for PDFs (format: dd-MM-yyyy, e.g. 01-01-2022).\n" +
+                            "  minDate      - Min modified date for PDFs (format: dd-MM-yyyy, e.g., 01-01-2022).\n" +
                             "                 Defaults to 01-01-1970.\n" +
                             "\n" +
-                            "  maxDate      - Maximum modified date for PDFs (format: dd-MM-yyyy, e.g. 01-01-2023).\n" +
+                            "  maxDate      - Max modified date for PDFs (format: dd-MM-yyyy, e.g., 01-01-2023).\n" +
                             "                 Defaults to the current date.\n" +
                             "\n" +
                             "Example:\n" +
@@ -275,11 +275,11 @@ public class Pdf2Txt {
                             "  - Last modified date filtering (min and max).\n" +
                             "\n" +
                             "Limitations:\n" +
-                            "  - Arguments must be provided in order (source, dest, minDate, maxDate).\n" +
+                            "  - Arguments must be provided in order: [source], [dest], [minDate], [maxDate].\n" +
                             "  - Only supports wildcard patterns (* and ?), not full regular expressions.\n" +
-                            "  - Wildcards apply to filenames only, not to directories.\n" +
+                            "  - Wildcards apply to filenames only, not directory names.\n" +
                             "  - The * wildcard is greedy (matches as many characters as possible).\n" +
-                            "  - Date filtering uses the file's last modified timestamp.\n" +
+                            "  - Date filtering is based on the file's last modified timestamp.\n" +
                             "  - Recursive folder traversal is not supported.\n" +
                             "\n" +
                             "Version: 1.0.0 (Stable)\n" +
