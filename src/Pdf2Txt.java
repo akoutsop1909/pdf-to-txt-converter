@@ -276,7 +276,7 @@ public class Pdf2Txt {
                             "\n" +
                             "Limitations:\n" +
                             "  - Arguments must be provided in order: [source], [dest], [minDate], [maxDate].\n" +
-                            "  - Only supports wildcard patterns (* and ?), not full regular expressions.\n" +
+                            "  - Supports only wildcard patterns (* and ?), not full regular expressions.\n" +
                             "  - Wildcards apply to filenames only, not directory names.\n" +
                             "  - The * wildcard is greedy (matches as many characters as possible).\n" +
                             "  - Date filtering is based on the file's last modified timestamp.\n" +
