@@ -12,7 +12,7 @@ You may also need to set the `JAVA_HOME` environment variable on some systems. I
 ## 📘 How to Use
 You can download the latest release from the **Releases** section of this repository, which includes the executable `pdf2txt.jar` and a `run_pdf2txt.bat` script for Windows users. This batch script prompts you for input and runs the `pdf2txt.jar` with the parameters you provide. Note that using the batch script is optional. You can still run the JAR file directly from the command line.
 
-Alternatively, you can clone the repository and build the JAR manually using a Java IDE like [IntelliJ IDEA](https://www.jetbrains.com/idea/download/?section=windows), or the `jar` command.
+Alternatively, you can clone the repository and build the JAR manually using a Java IDE like [IntelliJ IDEA](https://www.jetbrains.com/idea/download/?section=windows), or the `jar` command. Instructions [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) and [here](https://www.jetbrains.com/guide/java/tutorials/hello-world/packaging-the-application).
 
 To run the converter directly from the command line, you must use the following format:
 ```
