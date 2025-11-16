@@ -9,7 +9,7 @@ A command-line Java tool for batch-converting PDF files to TXT format using [Apa
 - Ensure that the `java` command is available in your system's `PATH`.  
 You may also need to set the `JAVA_HOME` environment variable on some systems. Instructions [here](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html).
 
-## 📘 How to Use
+## 🚀 Getting Started
 You can download the latest release from the **Releases** section of this repository, which includes the executable `pdf2txt.jar` and a `run_pdf2txt.bat` script for Windows users. This batch script prompts you for input and runs the `pdf2txt.jar` with the parameters you provide. Note that using the batch script is optional. You can still run the JAR file directly from the command line.
 
 Alternatively, you can clone the repository and build the JAR manually using a Java IDE like [IntelliJ IDEA](https://www.jetbrains.com/idea/download/?section=windows), or the `jar` command. Instructions [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) and [here](https://www.jetbrains.com/guide/java/tutorials/hello-world/packaging-the-application).
