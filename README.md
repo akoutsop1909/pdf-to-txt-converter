@@ -44,7 +44,7 @@ All arguments are optional but must be provided in the order listed above. If on
 java -jar pdf2txt.jar ./input/report_?.pdf ./output 01-01-2022 01-01-2023
 ```
 
-This command will convert PDF files in the `./input` directory, modified between Jan 1, 2022, and Jan 1, 2023, into TXT files, saving them in the `.output` directory. If no matching files are found, an appropriate message will be displayed.
+This command will convert PDF files matching the pattern `report_?.pdf` in the `./input` directory, modified between Jan 1, 2022, and Jan 1, 2023, into TXT files, saving them in the `.output` directory. If no matching files are found, an appropriate message will be displayed.
 
 > [!IMPORTANT]
 > Shell (e.g., Command Prompt, PowerShell, bash) may automatically expand wildcard characters before passing them to the converter, leading to unexpected behavior. To prevent this, you can either:
