@@ -1,7 +1,7 @@
 # PDF-to-TXT Converter
 A command-line Java tool for batch-converting PDF files to TXT format using [Apache PDFBox](https://pdfbox.apache.org/). It supports filtering input files by filename wildcards (e.g., `*.pdf`, `report_??.pdf`) and last modified date ranges. Output `.txt` files are saved to a specified directory, which is created automatically if it doesn't exist.
 > [!NOTE]
-> Initially built during my internship, tailored to the company's internal document needs.  
+> Originally built in 2019 during my internship, tailored to the company's internal document processing needs. Since then, I've made several improvements, including better handling of user input and switching from `iTextPDF` to `Apache PDFBox`, a more lightweight, open-source library better suited for extracting text from PDFs.  
 > Code shared with permission.
 
 ## ⚙️ System Requirements
